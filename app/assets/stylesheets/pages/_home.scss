@@ -4,10 +4,18 @@
   h4 {
     text-align: center;
   }
+  #video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
 }
 
 .get-inspired {
   text-align: center;
+  h4 {
+    margin-top: 50px;
+  }
   img {
     width: 80%;
   }
@@ -22,7 +30,15 @@
   }
 }
 
-#black-circle {
+.video-trend {
+  position: relative;
+  p {
+    position: absolute;
+    bottom: -60px;
+  }
+}
+
+.black-circle {
   font-size: 10px;
   padding-top: 8px;
 }

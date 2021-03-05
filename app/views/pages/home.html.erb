@@ -1,12 +1,5 @@
-
-
-<% if @user.present?%>
-<%#= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-
-<%#= Promotional Video section of the Home Page  %>
   <div class="home-page-container">
-    <h4>Promotional Video</h4>
+    <div><iframe id="video" width="80%" height="200vh" src="https://www.youtube.com/embed/dPyKEwCn62A" ></iframe></div>
   </div>
   <div class="home-page-container">
       <h4>Popular Looks</h4>
@@ -29,25 +22,36 @@
       </div>
 
     <%#= Added ID to control the circle button  %>
-    <div class="d-flex justify-content-center">
-      <i class="fas fa-circle mx-2" id="black-circle"></i>
-      <i class="fas fa-circle mx-2" id="black-circle"></i>
-      <i class="fas fa-circle mx-2" id="black-circle"></i>
+    <div class="d-flex justify-content-center mt-2">
+      <i class="fas fa-circle mx-2 black-circle"></i>
+      <i class="fas fa-circle mx-2 black-circle"></i>
+      <i class="fas fa-circle mx-2 black-circle"></i>
     </div>
   </div>
 <%#= Latest Trend Portion  %>
-<div class="home-page-container">
-<h4>Latest Trends</h4>
-</div>
-</div>
+  <h4>Latest Trends</h4>
+    <div class="container d-flex justify-content-around text-center pb-4">
+        <div class="video-trend">
+        <iframe class="video" width="85px" height="79px" src="https://www.youtube.com/embed/dPyKEwCn62A" ></iframe>
+        <p>Glitter Eyes</p>
+        </div>
+        <div class="video-trend">
+        <iframe class="video" width="85px" height="79px" src="https://www.youtube.com/embed/dPyKEwCn62A" ></iframe>
+        <p>Purple Eyeliner</p>
+        </div>
+        <div class="video-trend">
+        <iframe class="video" width="85px" height="79px" src="https://www.youtube.com/embed/dPyKEwCn62A" ></iframe>
+        <p>Yellow lipstick</p>
+        </div>
+    </div>
 <%#= Get Inspired Portion  %>
   <div class="get-inspired">
   <h4>Get Inspired</h4>
   <%= image_tag "https://images.unsplash.com/photo-1602910344008-22f323cc1817?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" %>
     <div class="d-flex justify-content-center mt-2 mb-5">
-      <i class="fas fa-circle mx-2" id="black-circle"></i>
-      <i class="fas fa-circle mx-2" id="black-circle"></i>
-      <i class="fas fa-circle mx-2" id="black-circle"></i>
+      <i class="fas fa-circle mx-2 black-circle"></i>
+      <i class="fas fa-circle mx-2 black-circle"></i>
+      <i class="fas fa-circle mx-2 black-circle"></i>
     </div>
   </div>
 <%#= Shop by Products Portion  %>

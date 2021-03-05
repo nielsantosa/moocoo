@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
+    @video = Video.all
   end
 
   def profile

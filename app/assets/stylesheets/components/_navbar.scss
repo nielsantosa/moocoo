@@ -1,49 +1,10 @@
-.dropdown-menu {
-  background-color: white;
-}
-
-.nav-profile > img {
-  width: 30px;
-  margin: 10px;
-}
-
-.navbar-cart img {
-  width: 30px;
-  margin-top: 13px;
-}
-
-.search-icon {
-  background-color: white;
-  border-width: 0px;
-}
-
-.navbar-brand.abs{
-  position: absolute;
-  width: 100%;
-  left: 0;
-  text-align: center;
-}
-
-.navbar-brand.abs img {
-  width: 100px;
-}
-
 .navbar {
-  height: 100px;
+  padding: 0 0.5rem 0.5rem;
 }
 
-
-.top {
-  position: fixed;
-  width: 100%;
-  z-index: 2;
-}
-
-.spacer {
-  width: 100%;
-  height: 150px;
-}
-
-.wrapper {
-  z-index: 1;
+.navbar-brand {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  left: 15px;
 }

@@ -21,11 +21,12 @@
  text-align: right;
 }
 
-.form-control {
-  font-size: 10px;
-  width: 50px;
-  display: inline;
-}
+// temporary disable this because it is affecting the form control for all pages, to name space it
+// .form-control {
+//   font-size: 10px;
+//   width: 50px;
+//   display: inline;
+// }
 
 .cart {
   background-color: white;

@@ -28,19 +28,20 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
+<<<<<<< HEAD
 import { onClick } from './vidtest';
 import { playAhead } from './buttontest';
 import { vidOrderAlert } from './vidorderalert';
+=======
+
+
+>>>>>>> origin/master
 // import { initSelect2 } from '../components/init_select2';
 import { initTabImageOnClick } from '../components/_tab_images';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-
-  onClick();
-
-  playAhead();
 
   initTabImageOnClick();
 
@@ -67,3 +68,15 @@ document.addEventListener('turbolinks:load', () => {
   // });
 });
 
+<<<<<<< HEAD
+=======
+document.addEventListener('turbolinks:request-start', () => {
+  const spinner = document.querySelector('#spinner');
+  spinner.style.display = 'flex';
+});
+
+document.addEventListener('turbolinks:request-end', () => {
+  const spinner = document.querySelector('#spinner');
+  spinner.style.display = 'none';
+});
+>>>>>>> origin/master

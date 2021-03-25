@@ -1,45 +1,47 @@
-
-
 <div class="container">
-  <img src= <%= @article.pic_url %> style="width: 100%;">
-  <br><br>
-  <p class="title"><%= @article.title %></p>
-  <p><%= @article.body %></p>
+  <div class="row">
+    <div class="col-12">
+      <img src="<%= @article.pic_url %>" style="width: 100%;">
+      <p class="title mt-3"><%= @article.title %></p>
+      <p><%= @article.body %></p>
+      <p><strong>By : <%= @article.author %></strong></p>
+      <p><strong><%= @article.date.strftime("%e %b %Y") %></strong></p>
 
-  <br>
-  <p style="font-size: 14px"><%= @article.author %></p>
-  <p style="font-size: 14px"><%= @article.date %></p>
+      <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacinia lobortis lorem a pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque scelerisque porta orci vitae faucibus. Morbi sit amet pellentesque mauris. In velit risus, facilisis eu dui et, tincidunt tempor dolor. Integer cursus nec justo eget vulputate. Sed maximus erat vel sapien convallis pharetra. Maecenas ut metus at sem vehicula sodales. Suspendisse nec eros mi. Nulla vulputate libero lectus, non elementum justo dignissim id. Phasellus commodo purus rutrum elit interdum, ut bibendum lorem accumsan. Vestibulum efficitur rhoncus ante pellentesque vehicula. Aenean eleifend luctus erat eget ultricies. Aenean massa lectus, rutrum id tristique sed, faucibus sollicitudin nulla. In id augue tempus, aliquet tellus non, consequat metus. Nam tempus cursus sodales.
+      </p>
+      <p>
+      Donec in eros facilisis, sollicitudin sem vitae, gravida dolor. Cras vestibulum mi ac odio maximus, sed lacinia metus pellentesque. Donec erat ex, finibus vitae elementum non, consectetur in magna. Integer interdum dictum lorem quis malesuada. Pellentesque volutpat ultricies felis, porttitor blandit eros feugiat vitae. Etiam in augue eu dui vehicula auctor a ac diam. Proin sed neque cursus, sodales augue nec, venenatis tortor.
+      </p>
+      <p>
+      Cras interdum nisi non nulla fermentum ultricies. Donec elementum sem auctor elementum sagittis. Ut aliquet magna eros, ac ultrices odio condimentum vel. Etiam gravida pulvinar dictum. Sed et velit eget mi molestie venenatis. Donec sollicitudin eleifend arcu, et sollicitudin nisl auctor vel. Maecenas ante justo, dictum vel sollicitudin ac, gravida non nulla. Curabitur vehicula malesuada enim, non fermentum ligula. Donec nec accumsan mi, cursus fringilla tellus.
+      </p>
 
-  <br><br>
-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacinia lobortis lorem a pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque scelerisque porta orci vitae faucibus. Morbi sit amet pellentesque mauris. In velit risus, facilisis eu dui et, tincidunt tempor dolor. Integer cursus nec justo eget vulputate. Sed maximus erat vel sapien convallis pharetra. Maecenas ut metus at sem vehicula sodales. Suspendisse nec eros mi. Nulla vulputate libero lectus, non elementum justo dignissim id. Phasellus commodo purus rutrum elit interdum, ut bibendum lorem accumsan. Vestibulum efficitur rhoncus ante pellentesque vehicula. Aenean eleifend luctus erat eget ultricies. Aenean massa lectus, rutrum id tristique sed, faucibus sollicitudin nulla. In id augue tempus, aliquet tellus non, consequat metus. Nam tempus cursus sodales.
-  <br><br>
-  Donec in eros facilisis, sollicitudin sem vitae, gravida dolor. Cras vestibulum mi ac odio maximus, sed lacinia metus pellentesque. Donec erat ex, finibus vitae elementum non, consectetur in magna. Integer interdum dictum lorem quis malesuada. Pellentesque volutpat ultricies felis, porttitor blandit eros feugiat vitae. Etiam in augue eu dui vehicula auctor a ac diam. Proin sed neque cursus, sodales augue nec, venenatis tortor.
-  <br><br>
-  Cras interdum nisi non nulla fermentum ultricies. Donec elementum sem auctor elementum sagittis. Ut aliquet magna eros, ac ultrices odio condimentum vel. Etiam gravida pulvinar dictum. Sed et velit eget mi molestie venenatis. Donec sollicitudin eleifend arcu, et sollicitudin nisl auctor vel. Maecenas ante justo, dictum vel sollicitudin ac, gravida non nulla. Curabitur vehicula malesuada enim, non fermentum ligula. Donec nec accumsan mi, cursus fringilla tellus.
-  <br><br>
-
-  <div class="container" style="text-align:center;">
-
-    <%= cl_image_tag @product.photo_id[0], width: 250, crop: :fill %>
-    <div style="justify-content: center;">
-      <div class="article-label-product">
-        <p><%= link_to "#{@product.brand.name} #{@product.name}", @product %> &nbsp&nbsp</p>
+      <div class="article-product my-3 text-center">
+        <%= cl_image_tag @product.photo_id[0], width: 250, crop: :fill %>
+        <div style="justify-content: center;">
+          <div class="article-label-product py-2">
+            <div><strong><%= @product.brand.name %></strong></div>
+            <%= link_to @product.name, @product %>
+          </div>
+          <div class="article">
+            <%= simple_form_for(@order, method: :post, url: vidcreateorder_path, :remote => true,  html: { class: :item }) do |f| %>
+              <%= f.input :product,  :as => :hidden, :input_html => { :value => @product.id } %>
+              <%= f.input :quantity, :as => :hidden, label: false, :input_html => { :id => "quantity", :value => 1 }%>
+              <%= button_tag type: 'submit', class: "cart btn btn-cart", id: 'cart-article-btn' do %>
+                Add to <i class="fa fa-shopping-cart text-white" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <div class="article">
-        <%= simple_form_for(@order, method: :post, url: vidcreateorder_path, :remote => true,  html: { class: :item }) do |f| %>
-          <%= f.input :product,  :as => :hidden, :input_html => { :value => @product.id } %>
-          <%= f.input :quantity, :as => :hidden, label: false, :input_html => { :id => "quantity", :value => 1 }%>
-          <%= button_tag type: 'submit', class: "cart btn btn-cart", id: 'cart-article-btn' do %>
-            Add to <i class="fa fa-shopping-cart text-white" aria-hidden="true"></i>
-          <% end %>
-        <% end %>
-      </div>
+
+      <p>
+      Donec lectus enim, efficitur sed egestas a, scelerisque eget quam. Nullam fringilla bibendum sem eu condimentum. Donec sit amet orci ullamcorper, laoreet tortor aliquam, bibendum felis. Donec ultrices ac quam ut dapibus. Morbi scelerisque diam nec augue lobortis venenatis. Nam suscipit leo in libero facilisis, et viverra libero bibendum. Sed ligula lorem, congue ut vulputate at, lacinia id tortor.
+      </p>
+      <p>
+      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum semper tellus ac porta efficitur. Nunc nisl lectus, convallis et congue non, venenatis quis nisl. Maecenas ac mauris rhoncus, tristique libero sit amet, suscipit nibh. Quisque efficitur purus sit amet elementum maximus. Sed varius congue rutrum. Nullam euismod iaculis ipsum et imperdiet. Suspendisse et erat fermentum, sagittis nisi a, tristique enim. Maecenas fermentum purus neque, quis sagittis diam elementum sit amet. Ut egestas dolor quis elit vestibulum, et laoreet ex vestibulum.
+      </p>
     </div>
   </div>
-  <br><br>
-  Donec lectus enim, efficitur sed egestas a, scelerisque eget quam. Nullam fringilla bibendum sem eu condimentum. Donec sit amet orci ullamcorper, laoreet tortor aliquam, bibendum felis. Donec ultrices ac quam ut dapibus. Morbi scelerisque diam nec augue lobortis venenatis. Nam suscipit leo in libero facilisis, et viverra libero bibendum. Sed ligula lorem, congue ut vulputate at, lacinia id tortor.
-  <br><br>
-  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum semper tellus ac porta efficitur. Nunc nisl lectus, convallis et congue non, venenatis quis nisl. Maecenas ac mauris rhoncus, tristique libero sit amet, suscipit nibh. Quisque efficitur purus sit amet elementum maximus. Sed varius congue rutrum. Nullam euismod iaculis ipsum et imperdiet. Suspendisse et erat fermentum, sagittis nisi a, tristique enim. Maecenas fermentum purus neque, quis sagittis diam elementum sit amet. Ut egestas dolor quis elit vestibulum, et laoreet ex vestibulum.
-
 </div>

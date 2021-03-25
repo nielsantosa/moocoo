@@ -1,5 +1,6 @@
 class ForumsController < ApplicationController
-   skip_before_action :authenticate_user!, only: [ :index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @topics = Forum.all.reverse
   end
@@ -22,7 +23,7 @@ class ForumsController < ApplicationController
       title = params["Title"]
       body = params["Body"]
       if title.present? && body.present?
-        Message.create(title: title, content: body, user:current_user, date: Time.now, forum: topic_new)
+        Message.create(title: title, content: body, user: current_user, date: Time.now, forum: topic_new)
       end
       redirect_to forums_path, notice: "Thread successfully created"
     else

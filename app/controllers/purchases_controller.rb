@@ -40,7 +40,6 @@ class PurchasesController < ApplicationController
     end
 
     purchase.destroy
-
     redirect_to cart_path
   end
 end

@@ -1,14 +1,13 @@
 <div class="container">
-  <p class="title">Articles</p>
+  <h2>Articles</h2>
   <% @articles.each do |article| %>
-    <div class="card-article">
+    <div class="card-article border-bottom py-3">
       <img src="<%= article.pic_url %>" alt="article-image">
       <div class="card-article-infos">
         <h2><%= link_to article.title, article %></h2>
         <p>By <%= article.author %></p>
       </div>
     </div>
-    <HR style="width: 75%; color: #D4D4D4;">
   <% end %>
 </div>
 

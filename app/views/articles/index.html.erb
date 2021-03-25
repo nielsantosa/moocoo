@@ -1,15 +1,15 @@
 <div class="container">
   <p class="title">Articles</p>
-    <% @articles.each do |article| %>
-      <div class="card-article">
-        <img src=<%= article.pic_url %> />
-        <div class="card-article-infos">
-          <h2><%= link_to article.title, article %></h2>
-          <p>By <%= article.author %></p>
-        </div>
+  <% @articles.each do |article| %>
+    <div class="card-article">
+      <img src="<%= article.pic_url %>" alt="article-image">
+      <div class="card-article-infos">
+        <h2><%= link_to article.title, article %></h2>
+        <p>By <%= article.author %></p>
       </div>
-      <HR style="width: 75%; color: #D4D4D4;">
-    <% end %>
-  </div>
+    </div>
+    <HR style="width: 75%; color: #D4D4D4;">
+  <% end %>
+</div>
 
 

@@ -17,9 +17,6 @@ module Moocoo
     config.load_defaults 6.0
     config.action_view.embed_authenticity_token_in_remote_forms = true
 
-    # Embed token in forms
-    config.action_view.embed_authenticity_token_in_remote_forms = true
-
     config.hosts << /.+\.ngrok\.io/
     config.hosts << /.+\.herokuapp\.com/
 

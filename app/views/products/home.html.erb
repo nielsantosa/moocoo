@@ -3,8 +3,8 @@
     <div class="col-12">
       <h3>Popular Products</h3>
         <div class="row no-gutters">
-        <% 2.times do |i| %>
-          <div class="col-6 px-1">
+        <% 4.times do |i| %>
+          <div class="col-6 col-md-3 px-1">
             <%= render partial: "shared/productcard", locals: { product: @products[4+i] } %>
           </div>
         <% end %>

@@ -7,6 +7,8 @@ body {
   min-height: 100vh;
   display: block;
   position: relative;
-  margin-top: 130px;
-  padding-bottom: 40px;
+  margin-top: 111px;
+  @media (min-width: 992px) {
+    margin-top: 70px;
+  }
 }

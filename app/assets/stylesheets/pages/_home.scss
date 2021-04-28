@@ -5,7 +5,7 @@
   background-position: center;
   padding: 250px 0;
   height: 100vh;
-  margin-top: -130px;
+  //margin-top: -130px;
   //text-align: center;
   .home-banner-title {
     font-family: $headers-font;
@@ -60,6 +60,71 @@
   margin-left: auto;
   margin-right: auto;
   }
+}
+
+@media (min-width: 768px) {
+  .home-banner {
+  margin: auto 0;
+  background-size: cover;
+  background-position: center;
+  padding: 20% 0;
+  height: 100vh;
+  //margin-top: -130px;
+  //text-align: center;
+  .home-banner-title {
+    font-family: $headers-font;
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 40px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 20px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+  a {
+    color: white;
+  }
+}
+
+.home-second-banner {
+  background-size: cover;
+  background-position: center;
+  padding: 20% 0;
+  height: 100vh;
+  margin: auto 0;
+  //text-align: center;
+  .home-banner-title {
+    font-family: $headers-font;
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 40px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 20px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+  a {
+    color: white;
+  }
+}
+
+.home-page-container {
+  margin-bottom: 1.4rem;
+  h4 {
+    text-align: center;
+  }
+  #video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+}
 }
 
 .get-inspired {

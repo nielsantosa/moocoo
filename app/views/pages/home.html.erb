@@ -10,34 +10,39 @@
     </div>
   </div>
 </div>
-<div class="home-second-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'f1.jpg' %> );">
-  <div class="container">
-    <div class="home-banner-title">Popular Make-up Tutorials</div>
-    <p>Specially curated for <i>you</i></p>
-    <p class="text-center"><%= link_to "Discover tutorials", videos_path, class: "btn btn-cart" %></p>
-  </div>
-</div>
-<div class="home-second-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'm10.jpg' %> );">
-  <div class="container">
-    <div class="home-banner-title">Cult Favourite Products</div>
-    <p>Made available just for <i>you</i></p>
-    <p class="text-center"><%= link_to "Discover products", products_path, class: "btn btn-cart" %></p>
-  </div>
-</div>
-<div class="home-second-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'm11.jpg' %> );">
-  <div class="container">
-    <div class="home-banner-title">Latest Articles</div>
-    <p>The latest on <i>your</i> beauty journey</p>
-    <p class="text-center"><%= link_to "Discover articles", articles_path, class: "btn btn-cart" %></p>
-  </div>
-</div>
-<div class="home-second-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'm3.jpg' %> );">
-  <div class="container">
-    <div class="home-banner-title">Got questions?</div>
-    <p>We've got your back</p>
-    <p class="text-center"><%= link_to "Discover forums", forums_path, class: "btn btn-cart" %></p>
-  </div>
-  <div class="padded-end">
-
-  </div>
-</div>
+<%= render partial: "home_second_banner",
+  locals: {
+    banner_image: 'f1.jpg',
+    banner_title: 'Popular Make-up Tutorials',
+    banner_description: 'Specially curated for you',
+    button_title: 'Discover Tutorials',
+    button_path: videos_path
+  }
+%>
+<%= render partial: "home_second_banner",
+  locals: {
+    banner_image: 'm10.jpg',
+    banner_title: 'Cult Favourite Products',
+    banner_description: 'Made available just for you',
+    button_title: 'Discover Products',
+    button_path: products_path
+  }
+%>
+<%= render partial: "home_second_banner",
+  locals: {
+    banner_image: 'm11.jpg',
+    banner_title: 'Latest Articles',
+    banner_description: 'The latest on your beauty journey',
+    button_title: 'Discover Articles',
+    button_path: articles_path
+  }
+%>
+<%= render partial: "home_second_banner",
+  locals: {
+    banner_image: 'm3.jpg',
+    banner_title: 'Got Questions?',
+    banner_description: 'We\'ve got your back!',
+    button_title: 'Discover Forums',
+    button_path: forums_path
+  }
+%>

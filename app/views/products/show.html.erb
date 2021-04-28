@@ -34,7 +34,7 @@
 
    <%= render partial: "shared/reviews"  %>
 
-  <% if current_user.email = 'test@test.com' %>
+  <% if user_signed_in? && current_user.email = 'test@test.com' %>
   <div class="row border-top border-dark border-3 pt-3 mt-3">
     <div class="col-12">
       <h3>Admin only : Images you have</h3>

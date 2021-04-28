@@ -17,13 +17,9 @@
       Cras interdum nisi non nulla fermentum ultricies. Donec elementum sem auctor elementum sagittis. Ut aliquet magna eros, ac ultrices odio condimentum vel. Etiam gravida pulvinar dictum. Sed et velit eget mi molestie venenatis. Donec sollicitudin eleifend arcu, et sollicitudin nisl auctor vel. Maecenas ante justo, dictum vel sollicitudin ac, gravida non nulla. Curabitur vehicula malesuada enim, non fermentum ligula. Donec nec accumsan mi, cursus fringilla tellus.
       </p>
 
-      <div class="article-product my-3 text-center">
-        <%= cl_image_tag @product.photo_id[0], width: 250, crop: :fill %>
-        <div style="justify-content: center;">
-          <div class="article-label-product py-2">
-            <div><strong><%= @product.brand.name %></strong></div>
-            <%= link_to @product.name, @product %>
-          </div>
+      <div class="row my-3">
+        <div class="col-3 m-auto">
+          <%= render partial: 'shared/productcard', locals: { product: @product } %>
           <div class="article">
             <%= simple_form_for(@order, method: :post, url: vidcreateorder_path, :remote => true,  html: { class: :item }) do |f| %>
               <%= f.input :product,  :as => :hidden, :input_html => { :value => @product.id } %>

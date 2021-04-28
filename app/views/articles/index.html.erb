@@ -5,6 +5,7 @@
       <img src="<%= article.pic_url %>" alt="article-image">
       <div class="card-article-infos">
         <h2><%= link_to article.title, article %></h2>
+        <p><%= article.date.strftime("%B %d, %Y") %> </p>
         <p>By <%= article.author %></p>
       </div>
     </div>

@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:destroy, :add_quantity, :minus_quantity]
+  before_action :set_order, only: [:add_quantity, :minus_quantity]
 
   def cart
     @orders = Order.where(user: current_user, confirmed: false).order("id asc")
@@ -69,6 +69,7 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    @order = Order.find(params[:id])
     @order.destroy
     # redirect_to cart_path
     # flash.alert = "Remove items from cart"

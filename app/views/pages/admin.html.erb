@@ -1,61 +1,67 @@
-<div class="col-12 mb-3">
-  <%= simple_form_for @product do |f| %>
-    <%= f.error_notification %>
-    <div class="form-inputs">
-      <h3>Add New Products</h3>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :price %>
-      <%= f.input :photos, as: :file, inner_html: { multiple: true } %>
-    </div>
-    <div class="form-actions">
-      <%= f.button :submit, "Add image", class: "btn btn-primary" %>
-    </div>
-  <% end %>
-</div>
+<div class="container">
+  <div class="row">
 
-<div class="col-12 mb-3">
-  <%= simple_form_for @video do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <h3>Add New Videos</h3>
-    <%= f.input :youtube_id, label: false, placeholder: 'youtube link' %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Add video", class: "btn btn-primary" %>
-  </div>
-  <% end %>
-</div>
+    <div class="col-12 mb-3">
+      <%= simple_form_for @product do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <h3>Add New Products</h3>
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.input :price %>
+          <%= f.input :photos, as: :file, inner_html: { multiple: true } %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Add image", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
 
-<div class="col-12" data-controller='duration'>
-  <%= simple_form_for @annotation do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <h3>Add New Annotation</h3>
-    <%= f.input :video, collection: @videos, input_html: { 'data-action': 'change->duration#updateTimes' } %>
-    <%= f.input :product, collection: @products %>
-    <%#= f.input :time_start, collection: [15, 20, 40, 60]%>
+    <div class="col-12 mb-3">
+      <%= simple_form_for @video do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <h3>Add New Videos</h3>
+        <%= f.input :youtube_id, label: false, placeholder: 'youtube link' %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Add video", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="col-12" data-controller='duration'>
+      <%= simple_form_for @annotation do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <h3>Add New Annotation</h3>
+        <%= f.input :video, collection: @videos, input_html: { 'data-action': 'change->duration#updateTimes' } %>
+        <%= f.input :product, collection: @products %>
+        <%#= f.input :time_start, collection: [15, 20, 40, 60]%>
+      </div>
+      <div class="form-inputs d-none" data-duration-target="annotation">
+        <h3>Duration</h3>
+        <%= f.input :time_start, as: :range, input_html: {
+          min: 0, max: 0,
+          data: {
+            'duration-target': 'start',
+            action: 'change->duration#changeStart'
+          }
+        } %>
+        <%= f.input :time_end, as: :range, input_html: {
+          min: 0, max: 0,
+          data: {
+            'duration-target': 'end',
+            action: 'change->duration#changeEnd'
+          }
+        } %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Add annotation", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+      <br>
+    </div>
+
   </div>
-  <div class="form-inputs d-none" data-duration-target="annotation">
-    <h3>Duration</h3>
-    <%= f.input :time_start, as: :range, input_html: {
-      min: 0, max: 0,
-      data: {
-        'duration-target': 'start',
-        action: 'change->duration#changeStart'
-      }
-    } %>
-    <%= f.input :time_end, as: :range, input_html: {
-      min: 0, max: 0,
-      data: {
-        'duration-target': 'end',
-        action: 'change->duration#changeEnd'
-      }
-    } %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Add annotation", class: "btn btn-primary" %>
-  </div>
-  <% end %>
-  <br>
 </div>

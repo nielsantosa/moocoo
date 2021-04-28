@@ -15,16 +15,20 @@
 
       <div class="filter-container">
         <div class="filter all">
-          <div class="cards-product my-3">
+          <div class="row my-3">
             <% @products.each do |product| %>
+            <div class="col-6 col-md-3">
             <%= render partial: "shared/productcard", locals: { product: product } %>
+            </div>
             <% end %>
           </div>
         </div>
         <div class="filter price">
-          <div class="cards-product my-3">
+          <div class="row my-3">
             <% @price.each do |product| %>
+            <div class="col-6 col-md-3">
             <%= render partial: "shared/productcard", locals: { product: product } %>
+            </div>
             <% end %>
           </div>
         </div>

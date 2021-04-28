@@ -3,6 +3,9 @@
 /* Style the images inside the grid */
 .tab-images-row {
   max-height: 250px;
+  @media (min-width: 768px) {
+    max-height: 500px;
+  }
 }
 
 .tab-images-col img {
@@ -15,10 +18,12 @@
 }
 
 .tab-images-col {
-  // padding-left: 0px;
   max-height: 250px;
   padding-right: 0px;
   overflow: scroll;
+  @media (min-width: 768px) {
+    max-height: 500px;
+  }
 }
 
 .tab-images-photo-container img{
@@ -59,4 +64,7 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  @media (min-width: 768px) {
+    height: 500px;
+  }
 }

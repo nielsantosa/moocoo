@@ -34,6 +34,7 @@
 
    <%= render partial: "shared/reviews"  %>
 
+  <% if user_signed_in? && current_user.email = 'test@test.com' %>
   <div class="row border-top border-dark border-3 pt-3 mt-3">
     <div class="col-12">
       <h3>Admin only : Images you have</h3>
@@ -49,7 +50,6 @@
       <% end %>
     </div>
   </div>
-
   <div class="row border-top border-dark border-3 py-3 mt-3">
     <div class="col-12">
       <h3>Admin only : Add Images</h3>
@@ -64,4 +64,5 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 </div>

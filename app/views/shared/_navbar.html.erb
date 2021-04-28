@@ -1,5 +1,5 @@
 <%# navbar %>
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top my-0 p-0">
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
   <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -21,7 +21,7 @@
       <%= link_to "Login", new_user_session_path, class: "btn my-3" %>
     <% end  %>
     <div class="nav-cart">
-      <%= link_to cart_path, class: "navbar-cart my-3" do %>
+      <%= link_to cart_path, class: "my-3" do %>
         <i class="fas fa-shopping-cart" style="font-size:1.8em;"></i>
         <% if user_signed_in? %>
         <span class="badge badge-pill badge-info cart-badge"><%= current_user.orders.where(confirmed: false).inject(0) { |sum, o| sum + o.quantity } %> </span>
@@ -35,7 +35,7 @@
   <%= render 'shared/searchbox' %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto pl-2">
+    <ul class="navbar-nav mr-auto pl-2 bg-white">
       <li class="nav-item">
         <%= link_to 'Tutorials', home_videos_path, class: 'nav-link'  %>
       </li>
@@ -51,9 +51,11 @@
       <li class="nav-item">
         <%= link_to 'Brands', brands_path, class: 'nav-link'  %>
       </li>
+      <% if user_signed_in? && current_user.email=='test@test.com' %>
       <li class="nav-item">
         <%= link_to 'Admin', admin_path, class: 'nav-link'  %>
       </li>
+      <% end %>
       <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
